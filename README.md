@@ -22,3 +22,9 @@ RESTful API with Springboot
 ** All the tool needs to be installed and configured **
 
 
+Session 1
+
+    1. Fork the repository https://github.com/dilipMaharjan/RESTWithSPringBoot
+    2. Clone it to your local project directory
+    3. Checkout feature branch 
+    
