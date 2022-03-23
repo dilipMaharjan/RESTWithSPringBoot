@@ -1,12 +1,10 @@
 package com.nscsp.rest.demo.resource;
 
-import com.nscsp.rest.demo.domain.Todo;
+import com.nscsp.rest.demo.domain.TodoDTO;
 import com.nscsp.rest.demo.service.TodoService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,16 +12,38 @@ import java.util.List;
 @RequestMapping("/api/v1")
 @AllArgsConstructor
 public class TodoResource {
+
+    @Autowired
     private TodoService todoService;
 
+    @PostMapping("/todos")
+    public void create(@RequestBody TodoDTO todoDTO) {
+        todoService.createTodo(todoDTO);
+    }
+
+    @PostMapping("/todos/createMultiple")
+    public void createMultiple(@RequestBody List<TodoDTO> todoDTOS) {
+        todoService.createMultiple(todoDTOS);
+    }
+
     @GetMapping("/todos")
-    public List<Todo> todos() {
+    public List<TodoDTO> todos() {
         return todoService.todos();
     }
 
     @GetMapping("/todos/{id}")
-    public Todo todo(@PathVariable Integer id) {
+    public TodoDTO todo(@PathVariable Integer id) {
         return todoService.todo(id);
+    }
+
+    @PutMapping("/todos/{id}")
+    public void edit(@RequestBody TodoDTO todoDTO) {
+        todoService.editTodo(todoDTO);
+    }
+
+    @DeleteMapping("/todos/{id}")
+    public void delete(@PathVariable Integer id) {
+        todoService.deleteTodo(id);
     }
 }
 

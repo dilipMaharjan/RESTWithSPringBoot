@@ -21,4 +21,30 @@ RESTful API with Springboot
 
 ** All the tool needs to be installed and configured **
 
+----------------------------------------------------------
+Data for createMultiple end point
+[
+{
+"id": 1,
+"title": "Learn Java Core",
+"description": "Before I can start creating cool application , I need to learn core java"
+},
+{
+"id": 2,
+"title": "Learn Python",
+"description": "Before I can start creating cool application , I need to learn core python"
+},
+{
+"id": 3,
+"title": "Learn Javascript",
+"description": "Before I can start creating cool web application , I need to learn Javascript"
+},
+{
+"id": 4,
+"title": "Work out ",
+"description": "Before I can start showing my body, I need to workout"
+}
+]
 
+mapstruct example
+https://www.baeldung.com/mapstruct
